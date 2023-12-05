@@ -5,15 +5,11 @@ pipeline {
     pollSCM('* * * * *')
   }
 
-
- stages {
-   stage('Checkout') {
    steps {
         git branch: 'main', 
         url: 'https://github.com/khlee80/source-maven-java-spring-hello-webapp.git'
       }
     }
-
     stage('Build2') {
       steps {
         sh 'mvn clean package'
