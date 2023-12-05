@@ -1,13 +1,13 @@
 pipeline {
-  agent any
+    agent {
+      label "jenkins-node01"
+    }
 
   triggers {
     pollSCM('* * * * *')
   }
 
-  stages {
-    stage('Checkout') {
-      steps {
+   steps {
         git branch: 'main', 
         url: 'https://github.com/khlee80/source-maven-java-spring-hello-webapp.git'
       }
